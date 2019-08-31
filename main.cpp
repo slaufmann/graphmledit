@@ -1,11 +1,16 @@
 #include "mainwindow.h"
+#include "graphwidget.h"
+
 #include <QApplication>
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    QApplication application(argc, argv);
+    MainWindow mainWindow;
+    GraphWidget* graphWidget = new GraphWidget;
 
-    return a.exec();
+    mainWindow.setCentralWidget(graphWidget);
+    mainWindow.show();
+
+    return application.exec();
 }
