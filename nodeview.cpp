@@ -26,7 +26,7 @@ QRectF NodeView::boundingRect() const {
  * is the QRectF as returned by boundingRect(). It is drawn with a black
  * stroke.
  */
-void NodeView::paint(QPainter* painter, QStyleOptionGraphicsItem*, QWidget*) {
+void NodeView::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*) {
     painter->setPen(QPen(Qt::black, 0));
     painter->drawRect(boundingRect());
 }
