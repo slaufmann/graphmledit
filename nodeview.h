@@ -10,6 +10,7 @@ public:
     NodeView(GraphWidget* parent);
 
     QRectF boundingRect() const override;
+    void paint(QPainter* painter, QStyleOptionGraphicsItem*, QWidget*);
 
 private:
     GraphWidget* parent;

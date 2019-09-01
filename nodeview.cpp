@@ -17,3 +17,16 @@ QRectF NodeView::boundingRect() const {
     qreal adjust = 2;   // adjust bounding rectangle by stroke width
     return QRectF(-10-adjust, -10-adjust, 10+adjust, 10+adjust);
 }
+
+/**
+ * @brief draw this node on the canvas
+ * @param painter object that is used to set pen options etc.
+ *
+ * For now the visual representation of a node is a simple rectengular that
+ * is the QRectF as returned by boundingRect(). It is drawn with a black
+ * stroke.
+ */
+void NodeView::paint(QPainter* painter, QStyleOptionGraphicsItem*, QWidget*) {
+    painter->setPen(QPen(Qt::black, 0));
+    painter->drawRect(boundingRect());
+}
