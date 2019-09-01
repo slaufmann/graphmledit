@@ -2,7 +2,12 @@
 
 NodeView::NodeView(GraphWidget* parent)
             : parent(parent)
-{}
+{
+    setFlag(ItemIsMovable);
+    setFlag(ItemSendsGeometryChanges);
+    setCacheMode(DeviceCoordinateCache);
+    setZValue(-1);
+}
 
 /**
  * @brief return the bounding rectangle of this node
