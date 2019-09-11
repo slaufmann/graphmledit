@@ -13,6 +13,7 @@ public:
     GraphWidget();
     GraphWidget(QWidget* parent);
 
+    void itemMoved();
     void scaleView(qreal scaleFactor);
     void keyPressEvent(QKeyEvent* event);
     void wheelEvent(QWheelEvent* event);

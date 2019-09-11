@@ -1,3 +1,4 @@
+#include "edgeview.h"
 #include "graphwidget.h"
 #include "nodeview.h"
 
@@ -24,7 +25,18 @@ GraphWidget::GraphWidget(QWidget* parent)
     setWindowTitle(tr("GraphML Editor"));
 
     NodeView* node1 = new NodeView(this);
+    NodeView* node2 = new NodeView(this);
+    EdgeView* edge1 = new EdgeView(node1, node2, this);
     scene->addItem(node1);
+    scene->addItem(node2);
+    scene->addItem(edge1);
+
+    node2->setPos(QPointF(50.0, 50.0));
+}
+
+void GraphWidget::itemMoved()
+{
+    // do nothing for now
 }
 
 void GraphWidget::scaleView(qreal scaleFactor) {
