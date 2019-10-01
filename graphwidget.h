@@ -2,9 +2,11 @@
 
 #include <QGraphicsView>
 #include <QKeyEvent>
+#include <QList>
 #include <QWheelEvent>
 
 class NodeView;
+class EdgeView;
 
 class GraphWidget : public QGraphicsView
 {
@@ -20,4 +22,6 @@ public:
 
 private:
     void zoomReset();
+
+    QList<EdgeView*> edges;
 };

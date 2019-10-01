@@ -1,17 +1,13 @@
 #pragma once
 
-#include "edgeview.h"
 #include "graphwidget.h"
 
 #include <QGraphicsItem>
-#include <QList>
 
 class NodeView : public QGraphicsItem
 {
 public:
     NodeView(GraphWidget* parent);
-
-    void addEdge(EdgeView* edge);
 
     QPointF getCenter() const;
     QRectF boundingRect() const override;
@@ -22,5 +18,4 @@ protected:
 
 private:
     GraphWidget* parent;
-    QList<EdgeView*> edges;
 };

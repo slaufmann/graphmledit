@@ -9,22 +9,15 @@ NodeView::NodeView(GraphWidget* parent)
     setZValue(-1);
 }
 
-void NodeView::addEdge(EdgeView *edge)
-{
-    edges.append(edge);
-}
-
 QVariant NodeView::itemChange(GraphicsItemChange change, const QVariant &value)
 {
     switch (change) {
         case ItemPositionHasChanged:
-            for (EdgeView* edge : qAsConst(edges))
-                edge->update();
             parent->itemMoved();
             break;
         default:
             break;
-    };
+    }
 
     return QGraphicsItem::itemChange(change, value);
 }

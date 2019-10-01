@@ -1,10 +1,12 @@
 #include "edgeview.h"
 
+#include <QDebug>
+
 EdgeView::EdgeView(NodeView* source, NodeView* target, GraphWidget* parent)
             : parent(parent), source(source), target(target)
 {
     setAcceptedMouseButtons(nullptr); // do not allow to be clicked for now
-    update();
+    adaptChanges();
 }
 
 NodeView* EdgeView::getSource() const
@@ -17,10 +19,11 @@ NodeView* EdgeView::getTarget() const
     return target;
 }
 
-void EdgeView::update()
+void EdgeView::adaptChanges()
 {
-    startPoint = source->getCenter();
-    endPoint = target->getCenter();
+    startPoint = QGraphicsItem::mapFromItem(source, source->getCenter());
+    endPoint = QGraphicsItem::mapFromItem(target, target->getCenter());
+    this->update();
 }
 
 QRectF EdgeView::boundingRect() const

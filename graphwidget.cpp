@@ -26,17 +26,19 @@ GraphWidget::GraphWidget(QWidget* parent)
 
     NodeView* node1 = new NodeView(this);
     NodeView* node2 = new NodeView(this);
-    EdgeView* edge1 = new EdgeView(node1, node2, this);
     scene->addItem(node1);
     scene->addItem(node2);
-    scene->addItem(edge1);
 
     node2->setPos(QPointF(50.0, 50.0));
+    EdgeView* edge1 = new EdgeView(node1, node2, this);
+    this->edges.append(edge1);
+    scene->addItem(edge1);
 }
 
 void GraphWidget::itemMoved()
 {
-    // do nothing for now
+    for (EdgeView* edge : qAsConst(edges))
+        edge->adaptChanges();
 }
 
 void GraphWidget::scaleView(qreal scaleFactor) {

@@ -12,7 +12,7 @@ public:
     NodeView* getSource() const;
     NodeView* getTarget() const;
 
-    void update();
+    void adaptChanges();
 
 protected:
     QRectF boundingRect() const override;
